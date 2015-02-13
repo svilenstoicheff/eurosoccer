@@ -2,21 +2,21 @@ extends layout
 
 block content
 
-   article
+   article(ng-controller= 'Teams')
       h1= title
  
-      ul.teamList(ng-controller= 'Teams')
+      ul.teamList
          each team in teamdata
            li 
-              a.teamBadge(href= team._links.self.href, ng-click= '$scope.getTeamsData()')
+              a.teamBadge(href= '#', ng-click= 'getTeamsData(\''+team._links.self.href+'\')')
                  img.teamcrest(src= team.crestUrl)
            
-              a.teamName(href= team._links.self.href) #{team.name} 
+              a.teamName(href= '#', ng-click= 'getTeamsData(\''+team._links.self.href+'\')') #{team.name} 
 
-      section.teamInfo
-         h2
+      section.teamInfo(ng-show= 'teamInfo')
+         h2(ng-bind= 'teamName')
          h3 Market Value
-         p.marketValue
+         p.marketValue(ng-bind= 'teamMarketValue')
          p
             a.seePlayers(href= '#') See the players
             ul.playerList
