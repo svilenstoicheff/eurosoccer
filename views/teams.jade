@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+   article
+      h1= title
+ 
+      ul.teamList(ng-controller= 'Teams')
+         each team in teamdata
+           li 
+              a.teamBadge(href= team._links.self.href, ng-click= '$scope.getTeamsData()')
+                 img.teamcrest(src= team.crestUrl)
+           
+              a.teamName(href= team._links.self.href) #{team.name} 
+
+      section.teamInfo
+         h2
+         h3 Market Value
+         p.marketValue
+         p
+            a.seePlayers(href= '#') See the players
+            ul.playerList

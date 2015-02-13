@@ -1,0 +1,33 @@
+[0mGET / [36m304 [0m765.298 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m4.420 ms - -[0m
+/Users/sstoicheff/Documents/workspaces/workspace2/soccer/views/teams.jade, line 10:
+You should not have jade tags with multiple attributes.
+[0mGET /teams?dataurl=http://api.football-data.org/alpha/soccerseasons/355/teams&league=Ligue%201%202014/15 [32m200 [0m668.078 ms - 4901[0m
+[0mGET /stylesheets/style.css [32m200 [0m4.999 ms - 223[0m
+[0mGET / [31m500 [0m769.854 ms - 2298[0m
+[0mGET /stylesheets/style.css [36m304 [0m1.355 ms - -[0m
+Port 3000 is already in use
+[0mGET / [31m500 [0m646.019 ms - 2298[0m
+[0mGET /stylesheets/style.css [36m304 [0m1.159 ms - -[0m
+[0mGET / [32m200 [0m780.478 ms - 2902[0m
+[0mGET /stylesheets/style.css [36m304 [0m5.180 ms - -[0m
+/Users/sstoicheff/Documents/workspaces/workspace2/soccer/views/teams.jade, line 10:
+You should not have jade tags with multiple attributes.
+[0mGET /teams?dataurl=http://api.football-data.org/alpha/soccerseasons/354/teams&league=Premier%20League%202014/15 [36m304 [0m901.454 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.074 ms - -[0m
+/Users/sstoicheff/Documents/workspaces/workspace2/soccer/views/teams.jade, line 10:
+You should not have jade tags with multiple attributes.
+[0mGET /teams?dataurl=http://api.football-data.org/alpha/soccerseasons/359/teams&league=Segunda%20Division%202014/15 [32m200 [0m712.891 ms - 5261[0m
+[0mGET /stylesheets/style.css [36m304 [0m1.018 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m1.143 ms - -[0m
+/Users/sstoicheff/Documents/workspaces/workspace2/soccer/views/teams.jade, line 10:
+You should not have jade tags with multiple attributes.
+[0mGET /teams?dataurl=http://api.football-data.org/alpha/soccerseasons/362/teams&league=Champions%20League%202014/15 [36m304 [0m669.156 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m1.227 ms - -[0m
+[0mGET /null [33m404 [0m24.267 ms - 1475[0m
+[0mGET / [31m500 [0m686.261 ms - 2298[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.060 ms - -[0m
+[0mGET / [31m500 [0m687.358 ms - 2298[0m
+[0mGET /stylesheets/style.css [36m304 [0m1.134 ms - -[0m
+[0mGET / [31m500 [0m706.117 ms - 2298[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.841 ms - -[0m
