@@ -15,8 +15,18 @@ block content
 
       section.teamInfo(ng-show= 'teamInfo')
          h2(ng-bind= 'teamName')
-         h3 Market Value
-         p.marketValue(ng-bind= 'teamMarketValue')
+         h3 Market Value: 
+            span.marketValue(ng-bind= 'teamMarketValue')
          p
-            a.seePlayers(href= '#') See the players
-            ul.playerList
+            a.seePlayers(href= '#') Players:
+            table.playerList
+               thead 
+                  tr
+                     th Player
+                     th Position 
+                     th Number
+                     th Date of birth
+                     th Nationality
+                     th Contract until 
+                     th Market calue
+                tbody

@@ -1,7 +1,12 @@
-article {width:80%; margin: 2em auto;}
+article {width:90%; margin: 2em auto;}
+nav {width: 100%; background: #555;  padding: .3em 0;}
+nav menu {width:90%; margin:auto; color: #fff; }
+menu a {color:#fff;}
+menu a:visited {color:#fff;}
 ul li {list-style-type: none; padding-bottom: 0.3em;}
 li img, li a {vertical-align: middle; margin-right: 0.5em}
 .teamcrest {width: 1.25em}
 ul.teamList {width:auto; float: left;}
-.teamInfo {float:right; width: 60%; /*display: none;*/}
+.teamInfo {float:right; width: 72%; margin-top: -3.7em; font-size:90%;/*display: none;*/}
 p {line-height: 150%;}
+th, td {padding: .2em .3em;}
