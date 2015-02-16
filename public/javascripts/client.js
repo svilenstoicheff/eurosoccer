@@ -18,8 +18,22 @@ angular.module('Soccer')
       $scope.teamInfo = true;
       var playerList = document.querySelector('table.playerList tbody');
       $(playerList).html('');
-      //console.log(playerList);
-      
+
+      //get the player data
+            $.ajax({
+              url: data._links.players.href, 
+              headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
+              dataType: 'json'
+            }).done(function(teams_data){
+              console.log(teams_data);
+              $('table.playerList tbody').html('');
+              $.each(teams_data.players, function(i, player){
+                console.log(player);
+                $('table.playerList tbody').append('<tr><td>'+ player.name + '</td><td>' + player.position + '</td><td>' + player.jerseyNumber + '</td><td>'+ player.dateOfBirth + '</td><td>' + player.nationality + '</td><td>' +player.contractUntil + '</td><td>'+ player.marketValue +'</td></tr>');
+                 $('body,html').animate({scrollTop: $('section.teamInfo').offset().top - 30});
+              });
+              
+            });
 
       //jQuery for now
           $('a.seePlayers').on('click', function(){

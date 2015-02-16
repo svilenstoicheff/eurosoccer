@@ -6,8 +6,8 @@ menu a:visited {color:#fff;}
 ul li {list-style-type: none; padding-bottom: 0.3em;}
 li img, li a {vertical-align: middle; margin-right: 0.5em}
 .teamcrest {width: 1.25em}
-ul.teamList {width:auto; float: left;}
-.teamInfo {float:right; width: 75%; margin-top: -0.7em; font-size:90%; background: #eee; padding: 0 1em;/*display: none;*/}
+ul.teamList {width:auto; float: left; margin-bottom: 1em;}
+.teamInfo {float:left; width: 75%; margin-top: -0.7em; font-size:90%; background: #eee; padding: 0 1em;/*display: none;*/}
 p {line-height: 150%;}
 th, td {padding: .2em .3em; text-align: left;}
 .playerList {font-size: 90%; width: 95%;}

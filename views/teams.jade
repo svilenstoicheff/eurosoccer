@@ -13,7 +13,7 @@ block content
            
               a.teamName(href= '#', ng-click= 'getTeamsData(\''+team._links.self.href+'\')') #{team.name} 
 
-      section.teamInfo(ng-show= 'teamInfo')
+      section.teamInfo#teamInfoId(ng-show= 'teamInfo')
          h2(ng-bind= 'teamName')
          h3 Market Value: 
             span.marketValue(ng-bind= 'teamMarketValue')
