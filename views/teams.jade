@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-   article(ng-controller= 'Teams')
+   article(ng-controller= 'Teams', data-rate= '')
       h1= title
  
       ul.teamList
@@ -28,5 +28,7 @@ block content
                      th Date of birth
                      th Nationality
                      th Contract until 
-                     th Market calue
+                     th Market value*
                 tbody
+
+            p * Converted to USD from EUR

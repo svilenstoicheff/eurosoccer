@@ -18,9 +18,7 @@ request(soccerApiOptions, function(err, response, body){
         console.log(err);
     } else if (response.statusCode === 200) {
     		leagues = body;
-    		console.log(leagues);
     		res.render('leagues', { title: 'European Football Leagues', leaguedata: leagues });
-
     } else {
         console.log(response.statusCode);
     }
@@ -40,7 +38,34 @@ module.exports.teamsList = function(req, res){
     		qs: {}
 		},
 		teams = [];
-		
+	function getRate () {
+        
+            request({
+            url: 'http://www.freecurrencyconverterapi.com/api/v3/convert?q=EUR_USD&compact=y', 
+            method: 'GET', 
+            json:{}, 
+            qs:{}
+        }, function(err, response, body){
+                if(err){
+                    console.log(err);
+                    return null;
+                } else if (response.statusCode === 200) {
+            
+                    
+                    return body.EUR_USD.val;
+
+                } else {
+                    console.log(response.statusCode);
+                    return null;
+                }   
+
+            }); 
+       
+        
+    }
+
+
+console.log(getRate());
 
 	request(teamApiOptions, function(err, response, body){
     if(err){
@@ -49,7 +74,7 @@ module.exports.teamsList = function(req, res){
        
     	teams = body.teams; 
     	
-    	res.render('teams', {title: leaguename, teamdata: teams});
+    	res.render('teams', {title: leaguename, teamdata: teams, rate: getRate()});
 
     } else {
         console.log(response.statusCode);

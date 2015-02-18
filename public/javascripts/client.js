@@ -16,34 +16,14 @@ angular.module('Soccer')
       $scope.teamName = data.name;
       $scope.teamMarketValue = data.squadMarketValue;
       $scope.teamInfo = true;
-      var playerList = document.querySelector('table.playerList tbody');
+      var playerList = document.querySelector('table.playerList tbody'),
+          playersUrl = data._links.players.href;
+      
       $(playerList).html('');
-
-      function formatDate(datestr){
-        if (datestr === null || datestr === '' || datestr === undefined){
-          return '';
-        }
-          var formattedDateStr = datestr.replace(/-/g, '/'),
-              rawDate = new Date(formattedDateStr), 
-              oldDate = rawDate.toLocaleDateString().split('/'),
-              newDate = '';
-
-              for(var i = 0; i < oldDate.length; i++){
-                if (oldDate[i].length === 1) {
-                  oldDate[i] = '0' + oldDate[i];
-                }
-                newDate += oldDate[i] + '/';
-              }
-          var lastChar = newDate.length - 1;
-          if (newDate.charAt(lastChar) === '/'){
-            newDate = newDate.substr(0, lastChar);
-          }
-        return newDate;
-      }
 
       //get the player data
             $.ajax({
-              url: data._links.players.href, 
+              url: playersUrl, 
               headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
               dataType: 'json'
             }).done(function(teams_data){
@@ -54,15 +34,22 @@ angular.module('Soccer')
               $.each(teams_data.players, function(i, player){
                 //console.log(player);
                 
+                var playerMarketValue = player.marketValue;
+                if(typeof SS.rate !== 'undefined'){
+                  playerMarketValue = parseInt(player.marketValue.replace(/,/g, '')) * SS.rate;
+                playerMarketValue = playerMarketValue.toLocaleString();
+                }
+
+                
 
                 $('table.playerList tbody').append('<tr><td>'+ 
                   player.name + '</td><td>' + 
                   player.position + '</td><td>' + 
                   player.jerseyNumber + '</td><td>'+ 
-                  formatDate(player.dateOfBirth) + '</td><td>' + 
+                  SS.formatDate(player.dateOfBirth) + '</td><td>' + 
                   player.nationality + '</td><td>' + 
-                  formatDate(player.contractUntil) + '</td><td>'+ 
-                  player.marketValue +'</td></tr>');
+                  SS.formatDate(player.contractUntil) + '</td><td>$'+ 
+                  playerMarketValue +'</td></tr>');
                 //for mobile - scroll to the players table
                 var playersOffset =  $('section.teamInfo').offset().top;
                  if(playersOffset >  600){
@@ -75,24 +62,33 @@ angular.module('Soccer')
             });
 
       //jQuery for now
+          //unbind first
+          $('a.seePlayers').off();
+          //bind
           $('a.seePlayers').on('click', function(){
             $.ajax({
-              url: data._links.players.href, 
+              url: playersUrl, 
               headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
               dataType: 'json'
             }).done(function(teams_data){
               //console.log(teams_data);
               $('table.playerList tbody').html('');
               $.each(teams_data.players, function(i, player){
-                //console.log(player);
+
+                var playerMarketValue = player.marketValue;
+                if(typeof SS.rate !== 'undefined'){
+                  playerMarketValue = parseInt(player.marketValue.replace(/,/g, '')) * SS.rate;
+                playerMarketValue = playerMarketValue.toLocaleString();
+                }
+
                 $('table.playerList tbody').append('<tr><td>'+ 
                   player.name + '</td><td>' + 
                   player.position + '</td><td>' + 
                   player.jerseyNumber + '</td><td>'+ 
-                  formatDate(player.dateOfBirth) + '</td><td>' + 
+                  SS.formatDate(player.dateOfBirth) + '</td><td>' + 
                   player.nationality + '</td><td>' +
-                  formatDate(player.contractUntil) + '</td><td>'+ 
-                  player.marketValue +'</td></tr>');
+                  SS. formatDate(player.contractUntil) + '</td><td>$'+ 
+                  playerMarketValue +'</td></tr>');
               });
               
             });
@@ -103,16 +99,45 @@ angular.module('Soccer')
     error(function(data, status, headers, config) {
     // called asynchronously if an error occurs
     // or server returns response with an error status.
+      console.log(status);
     });
-      //console.log($scope.teamName);
-  	};
-//console.log($scope);
+ 	}; //end getTeamsData
+
+
+
+
+
+$scope.getRate = function(){
+  $http.jsonp('http://www.freecurrencyconverterapi.com/api/v3/convert?q=EUR_USD&compact=y&callback=JSON_CALLBACK?')
+  .success(function(data, status, headers, config) {
+        SS.rate = data.EUR_USD.val;
+    })
+  .error(function(data, status, headers, config) {
+      console.log(status);
+    });
+}();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
-  });
+ }); //end controller Teams
 
   $(document).ready(function(){
-  /*
+  /*** way to call the API with jQuery - not used
+
   	$('.teamName').on('click', function(e){
   		var url = $(this).attr('href');
   		e.preventDefault();
