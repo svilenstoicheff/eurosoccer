@@ -37,7 +37,8 @@ angular.module('Soccer')
                 var playerMarketValue = player.marketValue;
                 if(typeof SS.rate !== 'undefined'){
                   playerMarketValue = parseInt(player.marketValue.replace(/,/g, '')) * SS.rate;
-                playerMarketValue = playerMarketValue.toLocaleString();
+                  playerMarketValue = Math.round(playerMarketValue / 1000) * 1000;
+                  playerMarketValue = playerMarketValue.toLocaleString();
                 }
 
                 
@@ -78,7 +79,8 @@ angular.module('Soccer')
                 var playerMarketValue = player.marketValue;
                 if(typeof SS.rate !== 'undefined'){
                   playerMarketValue = parseInt(player.marketValue.replace(/,/g, '')) * SS.rate;
-                playerMarketValue = playerMarketValue.toLocaleString();
+                  playerMarketValue = Math.round(playerMarketValue / 1000) * 1000;
+                  playerMarketValue = playerMarketValue.toLocaleString();
                 }
 
                 $('table.playerList tbody').append('<tr><td>'+ 
