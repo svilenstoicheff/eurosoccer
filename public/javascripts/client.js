@@ -63,7 +63,13 @@ angular.module('Soccer')
                   player.nationality + '</td><td>' + 
                   formatDate(player.contractUntil) + '</td><td>'+ 
                   player.marketValue +'</td></tr>');
-                 $('body,html').animate({scrollTop: $('section.teamInfo').offset().top - 30});
+                //for mobile - scroll to the players table
+                var playersOffset =  $('section.teamInfo').offset().top;
+                 if(playersOffset >  600){
+                  $('body,html').animate({scrollTop: playersOffset});
+                 }
+                 
+
               });
               
             });
