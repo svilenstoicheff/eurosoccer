@@ -14,7 +14,18 @@ angular.module('Soccer')
     // when the response is available
       //console.log(data);
       $scope.teamName = data.name;
-      $scope.teamMarketValue = data.squadMarketValue;
+      
+      var teamMarketValue = data.squadMarketValue;
+                if(typeof SS.rate !== 'undefined' && teamMarketValue !== null && teamMarketValue !== '' && teamMarketValue !== 'undefined'){
+                  teamMarketValue = parseInt(teamMarketValue.replace(/,/g, '')) * SS.rate;
+                  teamMarketValue = Math.round(teamMarketValue / 1000) * 1000;
+                  teamMarketValue = teamMarketValue.toLocaleString();
+                }
+
+
+      $scope.teamMarketValue = '$' +teamMarketValue;
+
+
       $scope.teamInfo = true;
       var playerList = document.querySelector('table.playerList tbody'),
           playersUrl = data._links.players.href;
@@ -35,10 +46,10 @@ angular.module('Soccer')
                 //console.log(player);
                 
                 var playerMarketValue = player.marketValue;
-                if(typeof SS.rate !== 'undefined'){
+                if(typeof SS.rate !== 'undefined' && playerMarketValue !== null && playerMarketValue !== '' && playerMarketValue !== 'undefined'){
                   playerMarketValue = parseInt(player.marketValue.replace(/,/g, '')) * SS.rate;
                   playerMarketValue = Math.round(playerMarketValue / 1000) * 1000;
-                  playerMarketValue = playerMarketValue.toLocaleString();
+                  playerMarketValue = '$' + playerMarketValue.toLocaleString();
                 }
 
                 
@@ -49,7 +60,7 @@ angular.module('Soccer')
                   player.jerseyNumber + '</td><td>'+ 
                   SS.formatDate(player.dateOfBirth) + '</td><td>' + 
                   player.nationality + '</td><td>' + 
-                  SS.formatDate(player.contractUntil) + '</td><td>$'+ 
+                  SS.formatDate(player.contractUntil) + '</td><td>'+ 
                   playerMarketValue +'</td></tr>');
                 //for mobile - scroll to the players table
                 var playersOffset =  $('section.teamInfo').offset().top;
@@ -77,10 +88,10 @@ angular.module('Soccer')
               $.each(teams_data.players, function(i, player){
 
                 var playerMarketValue = player.marketValue;
-                if(typeof SS.rate !== 'undefined'){
+                if(typeof SS.rate !== 'undefined' && playerMarketValue !== null && playerMarketValue !== '' && playerMarketValue !== 'undefined'){
                   playerMarketValue = parseInt(player.marketValue.replace(/,/g, '')) * SS.rate;
                   playerMarketValue = Math.round(playerMarketValue / 1000) * 1000;
-                  playerMarketValue = playerMarketValue.toLocaleString();
+                  playerMarketValue = '$' + playerMarketValue.toLocaleString();
                 }
 
                 $('table.playerList tbody').append('<tr><td>'+ 
@@ -89,7 +100,7 @@ angular.module('Soccer')
                   player.jerseyNumber + '</td><td>'+ 
                   SS.formatDate(player.dateOfBirth) + '</td><td>' + 
                   player.nationality + '</td><td>' +
-                  SS. formatDate(player.contractUntil) + '</td><td>$'+ 
+                  SS. formatDate(player.contractUntil) + '</td><td>'+ 
                   playerMarketValue +'</td></tr>');
               });
               
