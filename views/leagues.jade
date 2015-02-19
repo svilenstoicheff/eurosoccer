@@ -7,4 +7,11 @@ block content
         each league in leaguedata
            li
            a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
+           a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
+
+    table#standings
+       thead
+          tr
+             th standings
+       tbody
 

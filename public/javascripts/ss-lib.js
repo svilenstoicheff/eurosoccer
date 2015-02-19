@@ -25,3 +25,17 @@ SS.euroRate;
 SS.convertEurUsd = function(){
 
 }
+
+SS.getLeagueStandings = function(URL){
+	console.log(URL);
+	$.ajax({
+  		url: URL, 
+ 		headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
+ 		dataType: 'json'
+ 		}).done(function(data){
+        $('#standings tbody').html('');
+ 		$.each(data.standing, function(i, team){
+  							$('#standings tbody').append('<tr><td>'+ team.teamName +'</td></tr>');
+  						});
+	});
+};

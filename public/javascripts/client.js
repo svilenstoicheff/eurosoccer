@@ -149,6 +149,14 @@ $scope.getRate = function(){
  }); //end controller Teams
 
   $(document).ready(function(){
+
+    $('a.standings').on('click', function(e){
+      e.preventDefault();
+      var url = $(e.target).attr('data-standings');
+      console.log(url);
+      SS.getLeagueStandings(url);
+
+    });
   /*** way to call the API with jQuery - not used
 
   	$('.teamName').on('click', function(e){
