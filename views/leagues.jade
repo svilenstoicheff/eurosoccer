@@ -9,7 +9,7 @@ block content
            a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
            a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
 
-     section#standings
+     section#standings.box
         h2#leagueName 
         table
            thead

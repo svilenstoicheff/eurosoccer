@@ -33,6 +33,7 @@ SS.getLeagueStandings = function(URL){
  		headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
  		dataType: 'json'
  		}).done(function(data){
+ 			console.log(data);
         $('#standings table tbody').html('');
         $('#leagueName').text(data.leagueCaption);
  		$.each(data.standing, function(i, team){
@@ -45,5 +46,7 @@ SS.getLeagueStandings = function(URL){
                   team.goalDifference + '</td></tr>');
   						  }); 
                 $('#standings').show();
+	}).fail( function(){
+		console.log('error');
 	});
 };

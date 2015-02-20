@@ -1,3 +1,12 @@
+body {padding-bottom: 2em; 
+	background: -moz-linear-gradient(45deg, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(45deg, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(45deg, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(45deg, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(45deg, #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */}
+
 article {width:90%; margin: 2em auto;}
 nav {width: 100%; background: #555;  padding: .3em 0;}
 nav menu {width:90%; margin:auto; color: #fff; }
@@ -9,9 +18,11 @@ li img, li a {vertical-align: middle; margin-right: 0.5em}
 #standings {display: none; margin-left: 2em; margin-top: -0.8em; background-color: #eee; padding: 0.5em;}
 a.standings {display: inline-block; font-size: 80%; text-indent: 1em; }
 .teamcrest {width: 1.25em}
-ul.teamList {width:auto; float: left; margin-bottom: 1em;}
+ul.teamList, ul#leagueList {width:auto; float: left; margin-bottom: 1em; background: #333;}
+ul#leagueList a, ul.teamList a {color: #eee;}
 .teamInfo {float:left; width: 75%; min-width: 38rem; margin-top: -0.7em; font-size:.9rem; background: #eee; padding: 0 1em;/*display: none;*/}
 p {line-height: 150%;}
 th, td {padding: .2em .3em; text-align: left;}
 .playerList {font-size: .9rem; width: 95%;}
 .playerList tbody tr:nth-child(2n-1) {background-color: #ddd;}
+.box { box-shadow: 1px 1px 1px 1px;}
