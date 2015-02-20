@@ -5,6 +5,9 @@ menu a {color:#fff;}
 menu a:visited {color:#fff;}
 ul li {list-style-type: none; padding-bottom: 0.3em;}
 li img, li a {vertical-align: middle; margin-right: 0.5em}
+#leagueList, #standings {float: left; margin-right: 1em;}
+#standings {display: none; margin-left: 2em; margin-top: -0.8em; background-color: #eee; padding: 0.5em;}
+a.standings {display: inline-block; font-size: 80%; text-indent: 1em; }
 .teamcrest {width: 1.25em}
 ul.teamList {width:auto; float: left; margin-bottom: 1em;}
 .teamInfo {float:left; width: 75%; min-width: 38rem; margin-top: -0.7em; font-size:.9rem; background: #eee; padding: 0 1em;/*display: none;*/}

@@ -33,9 +33,17 @@ SS.getLeagueStandings = function(URL){
  		headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
  		dataType: 'json'
  		}).done(function(data){
-        $('#standings tbody').html('');
+        $('#standings table tbody').html('');
+        $('#leagueName').text(data.leagueCaption);
  		$.each(data.standing, function(i, team){
-  							$('#standings tbody').append('<tr><td>'+ team.teamName +'</td></tr>');
-  						});
+  							$('#standings table tbody').append('<tr><td>'+team.position+'</td><td>'+ 
+                  team.teamName +'</td><td>'+
+                  team.playedGames + '</td><td>'+
+                  team.points + '</td><td>'+
+                  team.goals + '</td><td>'+
+                  team.goalsAgainst + '</td><td>'+
+                  team.goalDifference + '</td></tr>');
+  						  }); 
+                $('#standings').show();
 	});
 };
