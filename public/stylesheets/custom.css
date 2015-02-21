@@ -9,6 +9,7 @@ body {padding-bottom: 2em;
 
 article {width:90%; margin: 2em auto;}
 nav {width: 100%; background: #555;  padding: .3em 0;}
+header, footer {height: 3em; background: #555; clear: both;}
 nav menu {width:90%; margin:auto; color: #fff; }
 menu a {color:#fff;}
 menu a:visited {color:#fff;}
@@ -16,11 +17,13 @@ ul li {list-style-type: none; padding-bottom: 0.3em;}
 li img, li a {vertical-align: middle; margin-right: 0.5em}
 #leagueList, #standings {float: left; margin-right: 1em;}
 #standings {display: none; margin-left: 2em; margin-top: -0.8em; background-color: #eee; padding: 0.5em;}
-a.standings {display: inline-block; font-size: 80%; text-indent: 1em; }
+a.standings {display: inline-block; font-size: 80%; text-indent: 1em; float: right; margin-top: 1em}
+#leagueList h3 {clear: both; float: left;}
 .teamcrest {width: 1.25em}
-ul.teamList, ul#leagueList {width:auto; float: left; margin-bottom: 1em; background: #333;}
-ul#leagueList a, ul.teamList a {color: #eee;}
-.teamInfo {float:left; width: 75%; min-width: 38rem; margin-top: -0.7em; font-size:.9rem; background: #eee; padding: 0 1em;/*display: none;*/}
+ul.teamList, #leagueList {width:auto; float: left; margin-bottom: 1em; background: #333; padding: 1em 1em 4em;}
+#leagueList a, ul.teamList a {color: #eee;}
+.teamInfo {float:left; width: 73%; min-width: 38rem; margin: -0.7em 0 0 -1em; font-size:.9rem; background: #eee; padding: 0 1em;
+	background-position: right top; background-repeat: no-repeat; background-size: 5em auto;}
 p {line-height: 150%;}
 th, td {padding: .2em .3em; text-align: left;}
 .playerList {font-size: .9rem; width: 95%;}

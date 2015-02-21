@@ -15,7 +15,10 @@ angular.module('Soccer')
       //console.log(data);
       $scope.teamName = data.name;
       
-      var teamMarketValue = data.squadMarketValue;
+      var teamMarketValue = data.squadMarketValue, 
+          teamBackgroundImg = data.crestUrl;
+
+          console.log(teamBackgroundImg);
                 if(typeof SS.rate !== 'undefined' && teamMarketValue !== null && teamMarketValue !== '' && teamMarketValue !== 'undefined'){
                   teamMarketValue = parseInt(teamMarketValue.replace(/,/g, '')) * SS.rate;
                   teamMarketValue = Math.round(teamMarketValue / 1000) * 1000;
@@ -54,7 +57,8 @@ angular.module('Soccer')
 
                 
 
-                $('table.playerList tbody').append('<tr><td>'+ 
+                $('table.playerList tbody')
+                .append('<tr><td>'+ 
                   player.name + '</td><td>' + 
                   player.position + '</td><td>' + 
                   player.jerseyNumber + '</td><td>'+ 
@@ -62,6 +66,7 @@ angular.module('Soccer')
                   player.nationality + '</td><td>' + 
                   SS.formatDate(player.contractUntil) + '</td><td>'+ 
                   playerMarketValue +'</td></tr>');
+
                 //for mobile - scroll to the players table
                 var playersOffset =  $('section.teamInfo').offset().top;
                  if(playersOffset >  600){
@@ -71,6 +76,9 @@ angular.module('Soccer')
 
               });
               
+              console.log(teamBackgroundImg);
+                $('#teamInfoId').css('background-image', 'url('+teamBackgroundImg+')');
+
             });
 
       //jQuery for now
