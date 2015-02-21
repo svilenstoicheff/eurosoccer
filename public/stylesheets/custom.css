@@ -1,4 +1,4 @@
-body {padding-bottom: 2em; 
+body {padding: 3em 0; 
 	background: -moz-linear-gradient(45deg, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(45deg, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
@@ -9,7 +9,9 @@ body {padding-bottom: 2em;
 
 article {width:90%; margin: 2em auto;}
 nav {width: 100%; background: #555;  padding: .3em 0;}
-header, footer {height: 3em; background: #555; clear: both;}
+header, footer {height: 3em; background: #555; clear: both; width: 100%;}
+header {position: fixed; top: 0;}
+footer {position: sticky;}
 nav menu {width:90%; margin:auto; color: #fff; }
 menu a {color:#fff;}
 menu a:visited {color:#fff;}
