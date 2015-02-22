@@ -67,17 +67,18 @@ angular.module('Soccer')
                   SS.formatDate(player.contractUntil) + '</td><td>'+ 
                   playerMarketValue +'</td></tr>');
 
-                //for mobile - scroll to the players table
-                var playersOffset =  $('section.teamInfo').offset().top;
-                 if(playersOffset >  600){
-                  $('body,html').animate({scrollTop: playersOffset});
-                 }
                  
 
               });
+
+                //for mobile - scroll to the players table
+                var playersOffset =  $('section.teamInfo').offset().top;
+                 if(playersOffset >  600){
+                  $('body,html').animate({scrollTop: playersOffset});   
+                 }
+                
               
-              console.log(teamBackgroundImg);
-                $('#teamInfoId').css('background-image', 'url('+teamBackgroundImg+')');
+              $('#teamInfoId').css('background-image', 'url('+teamBackgroundImg+')');
 
             });
 
