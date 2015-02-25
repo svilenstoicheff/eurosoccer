@@ -1,8 +1,8 @@
 extends layout
 
 block content
-
-   article(ng-controller= 'Teams', data-rate= '')
+  
+  article(ng-controller= 'Teams', data-rate= '')
       h1= title
  
       ul.teamList.box
@@ -32,3 +32,6 @@ block content
                 tbody
 
             p * Converted to USD from EUR
+
+      section#chartContainer
+  script(src='/javascripts/d3.min.js')

@@ -166,6 +166,9 @@ $scope.getRate = function(){
       SS.getLeagueStandings(url);
 
     });
+
+
+    
   /*** way to call the API with jQuery - not used
 
   	$('.teamName').on('click', function(e){
