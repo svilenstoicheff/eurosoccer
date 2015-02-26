@@ -91,9 +91,9 @@ chart.selectAll(".bar")
                       return "translate("+ (margin.left + x(d[0]))+", 0)";
                     })
       .attr("x", function(d) { return x.rangeBand() - margin.left/4; })
-      .attr("width", '30')
-      .attr("y", function(d) { return height - y(d[1]); })
-      .attr("height", function(d) { return y(d[1]); });
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return height - y(d[1]); });
 
 //not sure why this is here
 function type(d) {
