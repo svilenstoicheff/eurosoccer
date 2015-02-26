@@ -44,14 +44,19 @@ angular.module('Soccer')
               //console.log(teams_data);
               $('table.playerList tbody').html('');
 
+              var playerValues = [];
 
               $.each(teams_data.players, function(i, player){
                 //console.log(player);
                 
-                var playerMarketValue = player.marketValue;
+                var playerMarketValue = player.marketValue
+                playerName = player.name.substr(0, 2);
                 if(typeof SS.rate !== 'undefined' && playerMarketValue !== null && playerMarketValue !== '' && playerMarketValue !== 'undefined'){
                   playerMarketValue = parseInt(player.marketValue.replace(/,/g, '')) * SS.rate;
                   playerMarketValue = Math.round(playerMarketValue / 1000) * 1000;
+
+
+                  playerValues.push([playerName, playerMarketValue]);
                   playerMarketValue = '$' + playerMarketValue.toLocaleString();
                 }
 
@@ -79,6 +84,10 @@ angular.module('Soccer')
                 
               
               $('#teamInfoId').css('background-image', 'url('+teamBackgroundImg+')');
+
+                //console.log(playerValues);
+
+              SS.barChart(playerValues);
 
             });
 
@@ -112,10 +121,8 @@ angular.module('Soccer')
                   SS. formatDate(player.contractUntil) + '</td><td>'+ 
                   playerMarketValue +'</td></tr>');
               });
-              
             });
           });
-
 
     }).
     error(function(data, status, headers, config) {
