@@ -52,13 +52,14 @@ SS.getLeagueStandings = function(URL){
 };
 
 SS.barChart = function(data){
+  $('svg').remove(); //get rid of the previous chart, if there
 
-    var margin = {top: 20, right: 20, bottom: 30, left: 110},
-    width = 1000 - margin.left - margin.right,
-    height = 800 - margin.top - margin.bottom;
+    var margin = {top: 20, right: 20, bottom: 20, left: 110},
+    width = 900 - margin.left - margin.right,
+    height = 650 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
-var y = d3.scale.linear().range([height, 0]);
+var y = d3.scale.linear().range([height, 150]);
 
 x.domain(data.map(function(d){ return d[0]}));
 y.domain([0, d3.max(data, function(d){return d[1]})]);
@@ -83,17 +84,37 @@ chart.append("g")
       .attr("transform", "translate("+margin.left+",0)")  
       .call(yAxis);
 
-chart.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("transform", function(d, i){
-                      return "translate("+ (margin.left + x(d[0]))+", 0)";
+var barContainer = chart.selectAll(".barContainer")
+    .data(data)
+    .enter()
+    .append('g').attr('class', 'barContainer')
+    .attr("transform", function(d, i){
+                        var yTranslate = y(d[1]);
+                      return "translate("+ (margin.left + x(d[0]))+","+ yTranslate +")";
                     })
       .attr("x", function(d) { return x.rangeBand() - margin.left/4; })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d[1]); })
       .attr("height", function(d) { return height - y(d[1]); });
+
+    barContainer.append("rect")
+      .attr("class", "bar")
+      //.attr("transform", function(d, i){
+        //              return "translate("+ (margin.left + x(d[0]))+", 0)";
+          //          })
+      //.attr("x", function(d) { return x.rangeBand() - margin.left/4; })
+      .attr("width", x.rangeBand())
+      //.attr("y", function(d) { return y(d[1]); })
+      .attr("height", function(d) { return height - y(d[1]); });
+
+  barContainer.append('text')
+    .attr("transform", function(d, i){
+                      return "rotate(-90) translate(10, 5)";
+                    })
+    //.attr('y', function(d) { return y(d[1]); })
+    //.attr("x", function(d) { return x.rangeBand() - margin.left/4; })
+    .attr('dy', '.71em')
+    .text(function(d){return d[2];});
 
 //not sure why this is here
 function type(d) {

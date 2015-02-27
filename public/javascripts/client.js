@@ -49,14 +49,15 @@ angular.module('Soccer')
               $.each(teams_data.players, function(i, player){
                 //console.log(player);
                 
-                var playerMarketValue = player.marketValue
-                playerName = player.name.substr(0, 2);
+                var playerMarketValue = player.marketValue, 
+                    playerNumber = player.jerseyNumber,
+                    playerName = player.name;
                 if(typeof SS.rate !== 'undefined' && playerMarketValue !== null && playerMarketValue !== '' && playerMarketValue !== 'undefined'){
                   playerMarketValue = parseInt(player.marketValue.replace(/,/g, '')) * SS.rate;
                   playerMarketValue = Math.round(playerMarketValue / 1000) * 1000;
 
 
-                  playerValues.push([playerName, playerMarketValue]);
+                  playerValues.push([playerNumber, playerMarketValue, playerName]);
                   playerMarketValue = '$' + playerMarketValue.toLocaleString();
                 }
 
@@ -174,6 +175,14 @@ $scope.getRate = function(){
 
     });
 
+    $('a#showChart').on('click', function(){
+      $('#teamInfoId').hide();
+      $('#chartContainer').show();
+    });
+    $('#playerDetails').on('click', function(){
+      $('#teamInfoId').show();
+      $('#chartContainer').hide();
+    });
 
     
   /*** way to call the API with jQuery - not used

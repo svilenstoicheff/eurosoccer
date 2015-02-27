@@ -36,3 +36,32 @@ th, td {padding: .2em .3em; text-align: left;}
 .playerList {font-size: .9rem; width: 95%;}
 .playerList tbody tr:nth-child(2n-1), #standings tbody tr:nth-child(odd) {background-color: #9bc2cf;}
 .box { box-shadow: 1px 1px 1px 1px;}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+.barContainer {font-size: .75em;}
+
+#chartContainer {display: none; float:left; margin-left: 2em;}
+
+
+
