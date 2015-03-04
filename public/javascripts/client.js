@@ -89,6 +89,7 @@ angular.module('Soccer')
                 //console.log(playerValues);
 
               SS.barChart(playerValues);
+              //SS.pieChart(playerValues);
 
             });
 

@@ -16,7 +16,7 @@ article {width:90%; margin: 3em auto; overflow: hidden; padding-bottom: 1em}
 nav {width: 100%; background: #555;  padding: .3em 0;}
 header, footer {height: 3em; background: #555; clear: both; width: 100%;}
 header {position: fixed; top: 0;}
-footer {position: fixed; bottom: 0;}
+footer {position: fixed; bottom: 0; height: 1.5em;}
 nav menu {width:90%; margin:auto; color: #fff; }
 menu a {color:#fff;}
 menu a:visited {color:#fff;}
@@ -62,6 +62,7 @@ th, td {padding: .2em .3em; text-align: left;}
 .barContainer {font-size: .75em;}
 
 #chartContainer {display: none; float:left; margin-left: 2em;}
+.arc text {font-size: .5em}
 
 
 

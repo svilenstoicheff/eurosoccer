@@ -51,12 +51,14 @@ SS.getLeagueStandings = function(URL){
 	});
 };
 
+
+//bar chart
 SS.barChart = function(data){
   $('svg').remove(); //get rid of the previous chart, if there
 
-    var margin = {top: 20, right: 20, bottom: 20, left: 110},
-    width = 900 - margin.left - margin.right,
-    height = 650 - margin.top - margin.bottom;
+    var margin = {top: 10, right: 10, bottom: 10, left: 110},
+    width = 800 - margin.left - margin.right,
+    height = 533 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
 var y = d3.scale.linear().range([height, 150]);
@@ -99,62 +101,94 @@ var barContainer = chart.selectAll(".barContainer")
 
     barContainer.append("rect")
       .attr("class", "bar")
-      //.attr("transform", function(d, i){
-        //              return "translate("+ (margin.left + x(d[0]))+", 0)";
-          //          })
-      //.attr("x", function(d) { return x.rangeBand() - margin.left/4; })
       .attr("width", x.rangeBand())
-      //.attr("y", function(d) { return y(d[1]); })
       .attr("height", function(d) { return height - y(d[1]); });
 
   barContainer.append('text')
     .attr("transform", function(d, i){
                       return "rotate(-90) translate(10, 5)";
                     })
-    //.attr('y', function(d) { return y(d[1]); })
-    //.attr("x", function(d) { return x.rangeBand() - margin.left/4; })
     .attr('dy', '.71em')
     .text(function(d){return d[2];});
-
-//not sure why this is here
-function type(d) {
-    d[0] = +d[0]; // coerce to number
-    return d;
-  }
-
-/*
-  x.domain(data.map(function(d) { return d.letter; }));
-  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+  };
 
 
 
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Frequency");
-
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.letter); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
-
-      */
 
 
 
-}
+  SS.pieChart = function(data){
+    $('svg').remove();
+    var width = 500,
+        height = 500,
+        radius = Math.min(width, height) / 2;
+
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(0);
+
+var pie = d3.layout.pie()
+          .sort(null)
+          .value(function(d) { console.log(d); return d[0]; });
+
+var chart = d3.select("#chartContainer").append("svg")
+          .attr("width", width)
+          .attr("height", height)
+          .append("g")
+          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+   var g = chart.selectAll('.arc')
+    .data(pie(data))
+    .enter().append('g').attr('class', 'arc');
+    
+    g.append('path')
+    .attr('d', arc)
+    .style('fill', function(d){ 
+      console.log(d);
+      return color(d.data[0]);
+    });
+
+    g.append('text')
+    .attr('transform', function(d){
+
+        var coords = arc.centroid(d);
+        console.log(coords);
+
+      return 'translate(' + arc.centroid(d) +')';
+    
+
+    })
+    .attr('dy', '.35em')
+    .style('text-anchor', 'middle')
+    .text(function(d){
+      return d.data[0];
+    });
+
+/*d3.csv("data.csv", function(error, data) {
+
+  data.forEach(function(d) {
+    d.population = +d.population;
+  });
+
+  var g = svg.selectAll(".arc")
+      .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.age); });
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .style("text-anchor", "middle")
+      .text(function(d) { return d.data.age; });
+
+});
+*/
+  };
