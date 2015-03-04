@@ -90,6 +90,7 @@ angular.module('Soccer')
 
               SS.barChart(playerValues);
               //SS.pieChart(playerValues);
+              //SS.pieChartWithLabels(playerValues);
 
             });
 
