@@ -44,7 +44,7 @@ angular.module('Soccer')
               //console.log(teams_data);
               $('table.playerList tbody').html('');
 
-              var playerValues = [];
+              SS.playerValues = [];
 
               $.each(teams_data.players, function(i, player){
                 //console.log(player);
@@ -57,7 +57,7 @@ angular.module('Soccer')
                   playerMarketValue = Math.round(playerMarketValue / 1000) * 1000;
 
 
-                  playerValues.push([playerNumber, playerMarketValue, playerName]);
+                  SS.playerValues.push([playerNumber, playerMarketValue, playerName]);
                   playerMarketValue = '$' + playerMarketValue.toLocaleString();
                 }
 
@@ -77,6 +77,8 @@ angular.module('Soccer')
 
               });
 
+                              
+                
                 //for mobile - scroll to the players table
                 var playersOffset =  $('section.teamInfo').offset().top;
                  if(playersOffset >  600){
@@ -86,11 +88,11 @@ angular.module('Soccer')
               
               $('#teamInfoId').css('background-image', 'url('+teamBackgroundImg+')');
 
-                //console.log(playerValues);
+                //console.log(SS.playerValues);
 
-              SS.barChart(playerValues);
-              //SS.pieChart(playerValues);
-              //SS.pieChartWithLabels(playerValues);
+              SS.barChart(SS.playerValues);
+             //SS.pieChart(SS.playerValues);
+              //SS.pieChartWithLabels(SS.playerValues);
 
             });
 

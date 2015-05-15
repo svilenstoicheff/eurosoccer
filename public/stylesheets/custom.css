@@ -23,7 +23,8 @@ menu a:visited {color:#fff;}
 ul li {list-style-type: none; padding-bottom: 0.3em;}
 li img, li a {vertical-align: middle; margin-right: 0.5em}
 #leagueList, #standings {float: left; margin-right: 1em;}
-#standings {display: none; margin-left: 2em; margin-top: -0.8em; background-color: #add8e6; padding: 0.5em;}
+#standings, #gamesPlayed {display: none; margin-left: 2em; margin-top: -0.8em; background-color: #add8e6; padding: 0.5em;}
+#gamesPlayed {max-height: 90%; overflow-y: scroll;background-color: #eee; position:relative;}
 a.standings {display: inline-block; font-size: 80%; text-indent: 1em; float: right; margin-top: 1em}
 #leagueList h3 {clear: both; float: left;}
 .teamcrest {width: 1.25em}
@@ -34,44 +35,21 @@ ul.teamList, #leagueList {width:auto; float: left; margin-bottom: 1em; backgroun
 p {line-height: 150%;}
 th, td {padding: .2em .3em; text-align: left;}
 .playerList {font-size: .9rem; width: 95%;}
-.playerList tbody tr:nth-child(2n-1), #standings tbody tr:nth-child(odd) {background-color: #9bc2cf;}
+.playerList tbody tr:nth-child(2n-1), #standings tbody tr:nth-child(odd), #gamesPlayed tbody tr:nth-child(odd) {background-color: #9bc2cf;}
 .box { box-shadow: 1px 1px 1px 1px;}
-
-.bar {
-  fill: steelblue;
-}
-
-.bar:hover {
-  fill: brown;
-}
-
-.axis {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
+.bar { fill: steelblue;}
+.bar:hover { fill: brown;}
+.axis { font: 10px sans-serif;}
+.axis path, .axis line {fill: none; stroke: #000; shape-rendering: crispEdges;}
+.x.axis path {display: none;}
 .barContainer {font-size: .75em;}
-
 #chartContainer {display: none; float:left; margin-left: 2em;}
 .arc text {font-size: .5em}
-
-
 path.slice{ stroke-width:2px;}
-
-polyline{opacity: .3;
-	stroke: black;
-	stroke-width: 2px;
-	fill: none;
-}
+polyline{opacity: .3; stroke: black; stroke-width: 2px; fill: none;}
+#gamesPlayed > a.close {display: block; position: absolute; top: 0; right: 0;
+  padding: 3px 6px; border: 1px solid #333; border-radius: 1rem; margin: .2em;
+  background-color: #666; color: #fff; line-height: 100%;}
 
 
 

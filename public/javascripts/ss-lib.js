@@ -21,10 +21,11 @@ SS.formatDate = function (datestr){
           }
         return newDate;
       }
-SS.euroRate;
+/*SS.euroRate;
 SS.convertEurUsd = function(){
 
-}
+}*/
+
 
 SS.getLeagueStandings = function(URL){
 	//console.log(URL);
@@ -43,14 +44,63 @@ SS.getLeagueStandings = function(URL){
                   team.points + '</td><td>'+
                   team.goals + '</td><td>'+
                   team.goalsAgainst + '</td><td>'+
-                  team.goalDifference + '</td></tr>');
+                  team.goalDifference + '</td><td>'+
+                    '<a href="#" class="games-scores" data-games-url="'+team._links.team.href+'">show games</a>'
+                                                               +'</td></tr>');
   						  }); 
                 $('#standings').show();
+                $('.games-scores').on('click', function(e){
+                    var url = $(e.target).attr('data-games-url') + '/fixtures';
+                    SS.getGamesPlayed(url);
+                    
+                });
 	}).fail( function(){
 		console.log('error');
 	});
 };
 
+
+SS.getGamesPlayed = function(URL){
+    //console.log(URL);
+    $('#gamesPlayed').remove();
+    $.ajax({
+        url: URL, 
+        headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
+        dataType: 'json' 
+    })
+    .done(function(data){
+        console.log(data);
+        var gameGridRows = '';
+            
+        $.each(data.fixtures, function(i, item){
+            var date = new Date(item.date).toLocaleDateString(),
+                score = function(){
+                    if(item.result.goalsHomeTeam === -1 || item.result.goalsAwayTeam === -1){
+                        return "pending";
+                    }else {
+                        return item.result.goalsHomeTeam + ':'+ item.result.goalsAwayTeam;
+                    }
+                    
+                }, 
+                row = '<tr><td>'+ item.homeTeamName + '</td><td>'+ item.awayTeamName + 
+                        '</td><td>'+ score() +
+                        '</td><td>'+ date + '</td></tr>';
+                gameGridRows += row;
+            
+        });
+        
+        var gamegrid = '<section id="gamesPlayed" class="box"><a href="#" class="close">x</a><table><thead><tr><th>home</th><th>away</th><th>score</th><th>date</th></tr></thead><tbody>' + gameGridRows +'</tbody></table><section>';
+        $('body').append(gamegrid);
+        $('#gamesPlayed').css('position', 'absolute').css('top', '30px').css('left',"100px").fadeIn();
+        $('#gamesPlayed a').on('click', function(e){
+            $(e.target).parent().hide();
+        });
+        
+    })
+    .fail(function(){
+        console.log('error');
+    });
+};
 
 //bar chart
 SS.barChart = function(data){
@@ -163,9 +213,9 @@ var chart = d3.select("#chartContainer").append("svg")
 
     })
     .attr('dy', '.35em')
-    .style('text-anchor', 'middle')
+    .style('text-anchor', 'end')
     .text(function(d){
-      return d.data[0];
+      return d.data[2];
     });
   };
 
