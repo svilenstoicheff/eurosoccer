@@ -93,7 +93,7 @@ angular.module('Soccer')
               SS.barChart(SS.playerValues);
              //SS.pieChart(SS.playerValues);
               //SS.pieChartWithLabels(SS.playerValues);
-
+                $('#standings').hide();
             });
 
       //jQuery for now
@@ -188,6 +188,10 @@ $scope.getRate = function(){
       $('#chartContainer').hide();
     });
 
+ //render the standings table      
+ if($('#teamsContainer').length > 0 && $('#teamsContainer').attr('data-standingsurl').length > 0){
+     SS.getLeagueStandings($('#teamsContainer').attr('data-standingsurl'));
+ }
     
   /*** way to call the API with jQuery - not used
 

@@ -34,7 +34,7 @@ ul.teamList, #leagueList {width:auto; float: left; margin-bottom: 1em; backgroun
 .teamInfo {float:left; width: 73%; min-width: 38rem; margin: -0.7em 0 0 -1em; font-size:.9rem; background: #add8e6; padding: 0 1em;
 	background-position: right top; background-repeat: no-repeat; background-size: 5em auto;}
 p {line-height: 150%;}
-th, td {padding: .2em .3em; text-align: left;}
+th, td {padding: .3em; text-align: left;}
 .playerList {font-size: .9rem; width: 95%;}
 .playerList tbody tr:nth-child(2n-1), #standings tbody tr:nth-child(odd), #gamesPlayed tbody tr:nth-child(odd) {background-color: #9bc2cf;}
 .box { box-shadow: 1px 1px 1px 1px;}

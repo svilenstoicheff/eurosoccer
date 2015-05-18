@@ -29,7 +29,8 @@ request(soccerApiOptions, function(err, response, body){
 
 module.exports.teamsList = function(req, res){
 	var dataurl = req.query.dataurl,
-		leaguename = req.query.league, 
+		leaguename = req.query.league,
+        standingsUrl = dataurl.replace(/teams/,'leagueTable'), 
 		teamApiOptions = {
 			headers:{"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
     		url: dataurl, 
@@ -65,16 +66,18 @@ module.exports.teamsList = function(req, res){
     }
 
 
-console.log(getRate());
+//console.log(getRate());
 
 	request(teamApiOptions, function(err, response, body){
     if(err){
         console.log(err);
     } else if (response.statusCode === 200) {
        
-    	teams = body.teams; 
+    	teams = body.teams;
+        
+        console.log(teams);
     	
-    	res.render('teams', {title: leaguename, teamdata: teams, rate: getRate()});
+    	res.render('teams', {title: leaguename, teamdata: teams, standingsUrl: standingsUrl, rate: getRate()});
 
     } else {
         console.log(response.statusCode);
