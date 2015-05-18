@@ -30,6 +30,7 @@ a.standings {display: inline-block; font-size: 80%; text-indent: 1em; float: rig
 .teamcrest {width: 1.25em}
 ul.teamList, #leagueList {width:auto; float: left; margin-bottom: 1em; background: #222b2e; padding: 1em 1em 4em;}
 #leagueList a, ul.teamList a {color: #eee;}
+#leagueList h2 {color: #ddd; clear:both; padding-top: 1rem;}
 .teamInfo {float:left; width: 73%; min-width: 38rem; margin: -0.7em 0 0 -1em; font-size:.9rem; background: #add8e6; padding: 0 1em;
 	background-position: right top; background-repeat: no-repeat; background-size: 5em auto;}
 p {line-height: 150%;}
