@@ -12,11 +12,12 @@ body {
 	overflow: auto;
 }
 
-article {width:90%; margin: 3em auto; overflow: hidden; padding-bottom: 1em}
+article {width:90%; margin: 4.5em auto 0 auto; overflow: hidden; padding-bottom: 1em; background-color: ivory; box-shadow: 1px 1px 1px 1px #F99;}
 nav {width: 100%; background: #555;  padding: .3em 0;}
 header, footer {height: 3em; background: #555; clear: both; width: 100%;}
 header {position: fixed; top: 0;}
 footer {position: fixed; bottom: 0; height: 1.5em;}
+header h1 {margin: 0.5rem 0 0; color: #fffff0; text-align: center;}
 nav menu {width:90%; margin:auto; color: #fff; }
 menu a {color:#fff;}
 menu a:visited {color:#fff;}

@@ -3,8 +3,6 @@ extends layout
 block content
   
   article(ng-controller= 'Teams', data-rate= '', id= 'teamsContainer', data-standingsurl= standingsUrl)
-      h1= title
- 
       ul.teamList.box
          each team in teamdata
            li 
