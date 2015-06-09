@@ -38,11 +38,12 @@ module.exports.teamsList = function(req, res){
     		json: {}, 
     		qs: {}
 		},
-		teams = [];
-	function getRate () {
-        
+		teams = [], 
+        rate = 1, 
+	 getRate = function() {
             request({
-            url: 'http://www.freecurrencyconverterapi.com/api/v3/convert?q=EUR_USD&compact=y', 
+            //url: 'http://www.freecurrencyconverterapi.com/api/v3/convert?q=EUR_USD&compact=y', 
+            url: 'http://www.apilayer.net/api/live?access_key=d7a7fa4cf0a794d3b4d59271547e19d6', 
             method: 'GET', 
             json:{}, 
             qs:{}
@@ -52,21 +53,17 @@ module.exports.teamsList = function(req, res){
                     return null;
                 } else if (response.statusCode === 200) {
             
-                    
-                    return body.EUR_USD.val;
+                    //return body.EUR_USD.val;
+                    console.log(body.quotes.USDEUR);
+                    rate = body.quotes.USDEUR;
 
                 } else {
                     console.log(response.statusCode);
                     return null;
                 }   
 
-            }); 
-       
-        
+            });
     }
-
-
-//console.log(getRate());
 
 	request(teamApiOptions, function(err, response, body){
     if(err){
@@ -75,9 +72,9 @@ module.exports.teamsList = function(req, res){
        
     	teams = body.teams;
         
-        console.log(teams);
+        //console.log(teams);
     	
-    	res.render('teams', {title: leaguename, teamdata: teams, standingsUrl: standingsUrl, rate: getRate()});
+    	res.render('teams', {title: leaguename, teamdata: teams, standingsUrl: standingsUrl, rate: rate});
 
     } else {
         console.log(response.statusCode);

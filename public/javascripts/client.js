@@ -142,13 +142,14 @@ angular.module('Soccer')
 
 
 $scope.getRate = function(){
-  $http.jsonp('http://www.freecurrencyconverterapi.com/api/v3/convert?q=EUR_USD&compact=y&callback=JSON_CALLBACK?')
-  .success(function(data, status, headers, config) {
-        SS.rate = data.EUR_USD.val;
-    })
-  .error(function(data, status, headers, config) {
-      console.log(status);
-    });
+  //$http.jsonp('http://www.apilayer.net/api/live?access_key=d7a7fa4cf0a794d3b4d59271547e19d6&callback=JSON_CALLBACK?')
+  //.success(function(data, status, headers, config) {
+        SS.rate = document.getElementById('teamsContainer').getAttribute('data-rate');
+   //     console.log(data);
+   // })
+  //.error(function(data, status, headers, config) {
+  //    console.log(status);
+  //  });
 }();
 
 

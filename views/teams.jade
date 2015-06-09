@@ -2,7 +2,7 @@ extends layout
 
 block content
   
-  article(ng-controller= 'Teams', data-rate= '', id= 'teamsContainer', data-standingsurl= standingsUrl)
+  article(ng-controller= 'Teams', data-rate= rate, id= 'teamsContainer', data-standingsurl= standingsUrl)
       ul.teamList.box
          each team in teamdata
            li 
