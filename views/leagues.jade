@@ -9,56 +9,56 @@ block content
           if league.league === 'BL1' || league.league === 'BL2' || league.league === 'BL3'
             h3
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
+            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
           
         h2 Britain
         each league in leaguedata
           if league.league === 'PL'
             h3
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
+            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
             
         h2 France
         each league in leaguedata
           if league.league === 'FL1' || league.league === 'FL2'
             h3
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
+            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
         
         h2 Italy
         each league in leaguedata
           if league.league === 'SA' || league.league === 'SB'
             h3
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
+            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
         
         h2 Spain
         each league in leaguedata
           if league.league === 'PD' || league.league === 'SD'
             h3
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
+            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
         
         h2 Netherlands
         each league in leaguedata
           if league.league === 'DED'
             h3
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
+            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
             
         h2 Portugal
         each league in leaguedata
           if league.league === 'PPL'
             h3
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
+            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
             
          h2 Europe
         each league in leaguedata
           if league.league === 'CL'
             h3
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#') standings
+            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
             
             
      section#standings.box
@@ -73,6 +73,6 @@ block content
                  th goals +
                  th goals -
                  th goal diff
-                 th games played
+                 th games
            tbody
 

@@ -36,7 +36,7 @@ SS.getLeagueStandings = function(URL){
  		}).done(function(data){
  			//console.log(data);
         $('#standings table tbody').html('');
-        $('#leagueName').text(data.leagueCaption);
+        $('#leagueName').text(data.leagueCaption + ' standings');
  		$.each(data.standing, function(i, team){
   							$('#standings table tbody').append('<tr><td>'+team.position+'</td><td>'+ 
                   team.teamName +'</td><td>'+
@@ -45,7 +45,7 @@ SS.getLeagueStandings = function(URL){
                   team.goals + '</td><td>'+
                   team.goalsAgainst + '</td><td>'+
                   team.goalDifference + '</td><td>'+
-                    '<a href="#" class="games-scores" data-games-url="'+team._links.team.href+'">show games</a>'
+                    '<a href="#" class="games-scores" data-games-url="'+team._links.team.href+'"></a>'
                                                                +'</td></tr>');
   						  }); 
                 $('#standings').show();
@@ -84,7 +84,7 @@ SS.getGamesPlayed = function(URL){
                 }, 
                 row = '<tr><td>'+ item.homeTeamName + '</td><td>'+ item.awayTeamName + 
                         '</td><td>'+ score() +
-                        '</td><td>'+ date + '</td></tr>';
+                        '</td><td class="date">'+ date + '</td></tr>';
                 gameGridRows += row;
             
         });
