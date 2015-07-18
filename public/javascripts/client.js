@@ -41,6 +41,7 @@ angular.module('Soccer')
               headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
               dataType: 'json'
             }).done(function(teams_data){
+              $('#error').hide();
               //console.log(teams_data);
               $('table.playerList tbody').html('');
 
@@ -106,6 +107,7 @@ angular.module('Soccer')
               headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
               dataType: 'json'
             }).done(function(teams_data){
+              $('#error').hide();
               //console.log(teams_data);
               $('table.playerList tbody').html('');
               $.each(teams_data.players, function(i, player){
