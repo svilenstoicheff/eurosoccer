@@ -56,6 +56,9 @@ SS.getLeagueStandings = function(URL){
                 });
 	}).fail( function(){
 		console.log('error');
+    var errorMessage = 'Data error';
+
+    $('#error').hide().html('').show('slow').append(errorMessage);
 	});
 };
 

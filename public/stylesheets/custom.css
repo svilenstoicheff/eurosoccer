@@ -55,4 +55,5 @@ polyline{opacity: .3; stroke: black; stroke-width: 2px; fill: none;}
 .games-scores {width: 16px; height: 16px; display: block; margin: auto;}
 td.date {text-align: right;}
 
+#error {color: red; display: none; margin: 15% auto; width: 40%; text-align: center; padding: 1em;}
 
