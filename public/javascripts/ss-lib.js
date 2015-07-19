@@ -64,10 +64,10 @@ SS.getLeagueStandings = function(URL){
 
 
 SS.getGamesPlayed = function(URL){
-    //console.log(URL);
+    var season = $('body').attr('data-season');
     $('#gamesPlayed').remove();
     $.ajax({
-        url: URL, 
+        url: URL +'?season='+season, 
         headers: {"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
         dataType: 'json' 
     })
