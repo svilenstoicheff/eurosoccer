@@ -72,6 +72,7 @@ SS.getGamesPlayed = function(URL){
         dataType: 'json' 
     })
     .done(function(data){
+      $('#error').hide();
         console.log(data);
         var gameGridRows = '';
             

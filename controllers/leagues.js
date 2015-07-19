@@ -4,9 +4,10 @@ var request = require('request');
 module.exports.leagueList = function(req, res){
 
 var leagues = [], 
+    season = req.query.season || 2015,
 		soccerApiOptions = {
 			headers:{"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
-    		url: "http://api.football-data.org/alpha/soccerseasons/", 
+    		url: "http://api.football-data.org/alpha/soccerseasons/?season=" + season, 
     		method: "GET", 
     		json: {}, 
     		qs: {}
