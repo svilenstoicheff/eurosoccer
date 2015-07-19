@@ -19,7 +19,7 @@ request(soccerApiOptions, function(err, response, body){
         console.log(err);
     } else if (response.statusCode === 200) {
     		leagues = body;
-    		res.render('leagues', { title: 'European Football Leagues', leaguedata: leagues });
+    		res.render('leagues', { title: 'European Football Leagues', leaguedata: leagues, season: season });
     } else {
         console.log(response.statusCode);
     }
