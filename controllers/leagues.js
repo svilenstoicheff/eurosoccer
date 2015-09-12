@@ -1,10 +1,10 @@
 var request = require('request');
-	
+var defaultSeason = 2015;
 
 module.exports.leagueList = function(req, res){
 
 var leagues = [], 
-    season = req.query.season || 2014,
+    season = req.query.season || defaultSeason,
 		soccerApiOptions = {
 			headers:{"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
     		url: "http://api.football-data.org/alpha/soccerseasons/?season=" + season, 
@@ -30,7 +30,7 @@ request(soccerApiOptions, function(err, response, body){
 
 module.exports.teamsList = function(req, res){
 	var dataurl = req.query.dataurl,
-        season = req.query.season || 2014,
+        season = req.query.season || defaultSeason,
 		leaguename = req.query.league,
         standingsUrl = dataurl.replace(/teams/,'leagueTable'), 
 		teamApiOptions = {
