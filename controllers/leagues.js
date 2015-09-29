@@ -40,7 +40,14 @@ module.exports.teamsList = function(req, res){
     		json: {}, 
     		qs: {}
 		},
+        standingsApiOptions = {headers:{"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
+            url: standingsUrl, 
+            method: "GET", 
+            json: {}, 
+            qs: {}
+        },
 		teams = [], 
+        standings = {},
         rate = 1, 
 	 getRate = function() {
             request({
@@ -56,7 +63,7 @@ module.exports.teamsList = function(req, res){
                 } else if (response.statusCode === 200) {
             
                     //return body.EUR_USD.val;
-                    console.log(body.quotes.USDEUR);
+                    //console.log(body.quotes.USDEUR);
                     rate = body.quotes.USDEUR;
 
                 } else {
@@ -73,11 +80,24 @@ module.exports.teamsList = function(req, res){
     } else if (response.statusCode === 200) {
        
     	teams = body.teams;
-        
         //console.log(teams);
-    	
-    	res.render('teams', {title: leaguename, teamdata: teams, standingsUrl: standingsUrl, rate: rate, season: season});
+        
+        request(standingsApiOptions, function(err, stResponse, stBody){
+            if(err){
+                //console.log(err);
+            } else if(stResponse.statusCode === 200){
+                standings = stBody.standing;
+                //console.log(standings);
 
+                res.render('teams', {title: leaguename, teamdata: teams, standingdata: standings, standingsUrl: standingsUrl, rate: rate, season: season});
+
+            }
+            
+        });
+        
+        
+    	
+    	
     } else {
         console.log(response.statusCode);
     }
