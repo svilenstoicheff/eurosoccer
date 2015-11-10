@@ -39,9 +39,9 @@ SS.getLeagueStandings = function(URL){
         $('#leagueName').text(data.leagueCaption + ' standings');
  		$.each(data.standing, function(i, team){
   							$('#standings table tbody').append('<tr><td>'+team.position+'</td><td>'+ 
-                  team.teamName +'</td><td>'+
-                  team.playedGames + '</td><td>'+
+                  team.teamName +'</td><td class="points">'+
                   team.points + '</td><td>'+
+                  team.playedGames + '</td><td>'+
                   team.goals + '</td><td>'+
                   team.goalsAgainst + '</td><td>'+
                   team.goalDifference + '</td><td>'+
@@ -49,6 +49,7 @@ SS.getLeagueStandings = function(URL){
                                                                +'</td></tr>');
   						  }); 
                 $('#standings').show();
+                $('p.blurb').animate({height:0}, 500).hide(700);
                 $('.games-scores').on('click', function(e){
                     var url = $(e.target).attr('data-games-url') + '/fixtures';
                     SS.getGamesPlayed(url);

@@ -12,7 +12,9 @@ body {
 	overflow: auto;
 }
 
-article {width:90%; font-size: 90%; margin: 4.5em auto 0 auto; overflow: hidden; padding-bottom: 1em; background-color: ivory; box-shadow: 1px 1px 1px 1px #F99;}
+article {width:90%; height:100%; font-size: 90%; margin: 4.5em auto 0 auto; overflow: hidden; 
+	padding-bottom: 1em; background-color: #e3e3e3; box-shadow: 1px 1px 1px 1px #999;}
+article#teamsContainer {min-width:1070px;}
 nav {width: 100%; background: #555;  padding: .3em 0;}
 header, footer {height: 3em; background: #555; clear: both; width: 100%;}
 header {position: fixed; top: 0;}
@@ -30,7 +32,7 @@ a.standings {display: inline-block; font-size: 80%; text-indent: 1em; float: rig
 #leagueList h3 {clear: both; float: left; margin: 0.2em 0;}
 h3 a {text-indent: .5em; display: inline-block;}
 .teamcrest {width: 1.25em}
-ul.teamList, #leagueList {width:auto; float: left; margin-bottom: 1em; background: #222b2e; padding: 1em 1em 4em;}
+ul.teamList, #leagueList {width:auto; height: 100%; float: left; margin-bottom: 1em; background: #222b2e; padding: 1em 1em 4em;}
 #leagueList a, ul.teamList a {color: #eee;}
 #leagueList h2 {color: #ddd; clear:both; padding-top: 1rem;}
 .teamInfo {float:left; width: 73%; min-width: 38rem; margin: -0.7em 0 0 -1em; font-size:.9rem; background: #add8e6; padding: 0 1em;
@@ -57,4 +59,17 @@ polyline{opacity: .3; stroke: black; stroke-width: 2px; fill: none;}
 td.date {text-align: right;}
 
 #error {color: red; display: none; margin: 15% auto; width: 40%; text-align: center; padding: 1em;}
+.points {font-weight: 700;}
+p.blurb {
+    margin: 2em 1em 0 40em;
+    border: 1px outset #ccc;
+    padding: .5em;
+    background-color: lightcyan;
+}
+span.standings {
+    width: 1.1em;
+    height: 1.12em;
+    display: inline-block;
+    background-color: #222b2e;
+}
 
