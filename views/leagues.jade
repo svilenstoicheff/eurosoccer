@@ -61,7 +61,7 @@ block content
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
             a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
             
-            
+     p.blurb This site displays current statistics for the most competitive West European footbal (soccer) leagues. Click on a league name on the left to get team and player stats. For current standings, just click the <span class="standings"></span> icon.      
      section#standings.box
         h2#leagueName 
         table
@@ -69,8 +69,8 @@ block content
               tr
                  th
                  th team
-                 th gp
                  th pts
+                 th gp
                  th goals +
                  th goals -
                  th goal diff
