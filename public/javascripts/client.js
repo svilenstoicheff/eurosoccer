@@ -177,7 +177,7 @@ $scope.getRate = function(){
     $('a.standings').on('click', function(e){
       e.preventDefault();
       var url = $(e.target).attr('data-standings');
-      console.log(url);
+      //console.log(url);
       SS.getLeagueStandings(url);
 
     });
