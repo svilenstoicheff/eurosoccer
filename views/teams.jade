@@ -12,7 +12,8 @@ block content
                    img.teamcrest(src= team.crestUrl)
              
                 a.teamName(href= '#', ng-click= 'getTeamsData(\''+team._links.self.href+'\')') #{team.name} 
-
+         li.note
+           em Click a team name for player info and value comparison
       section.teamInfo.box#teamInfoId(ng-show= 'teamInfo')
          h2(ng-bind= 'teamName')
          h3 Market Value*: 
@@ -50,6 +51,11 @@ block content
                  th goal diff
                  th games
            tbody
+           tfoot 
+              tr.note
+                 td(colspan= 8) 
+                    em Click the <span class="games-played-icon"></span> icon to see a list of past games and scores, and pending games. 
+     
       
       section#chartContainer
         h2 Player Market-Value Comparison

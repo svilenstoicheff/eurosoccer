@@ -32,7 +32,8 @@ a.standings {display: inline-block; font-size: 80%; text-indent: 1em; float: rig
 #leagueList h3 {clear: both; float: left; margin: 0.2em 0;}
 h3 a {text-indent: .5em; display: inline-block;}
 .teamcrest {width: 1.25em}
-ul.teamList, #leagueList {width:auto; height: 100%; float: left; margin-bottom: 1em; background: #222b2e; padding: 1em 1em 4em;}
+ul.teamList, #leagueList {width:auto; max-width: 18em; height: 100%; float: left; margin-bottom: 1em; background: #222b2e; padding: 1em 1em 4em;}
+ul.teamList {max-width: 15em;}
 #leagueList a, ul.teamList a {color: #eee;}
 #leagueList h2 {color: #ddd; clear:both; padding-top: 1rem;}
 .teamInfo {float:left; width: 73%; min-width: 38rem; margin: 1em 0.5em; font-size:.85rem; background: #add8e6; padding: 0 1em;
@@ -56,15 +57,19 @@ polyline{opacity: .3; stroke: black; stroke-width: 2px; fill: none;}
   padding: 3px 6px; border: 1px solid #333; border-radius: 1rem; margin: .2em 0.8em;
   background-color: #666; color: #fff; line-height: 100%; text-transform: uppercase;}
 .games-scores {width: 16px; height: 16px; display: block; margin: auto;}
+.games-played-icon {width: 16px; height: 16px; display: inline-block;}
 td.date {text-align: right;}
 
 #error {color: red; display: none; margin: 15% auto; width: 40%; text-align: center; padding: 1em;}
 .points {font-weight: 700;}
 p.blurb {
-    margin: 2em 1em 0 40em;
-    border: 1px outset #ccc;
+    /*margin: 2em 1em 0 40em;
+    border: 1px outset #ccc; */
+    margin: 1em 1em 1em 21em;
+    max-width: 90%;
     padding: .5em;
-    background-color: lightcyan;
+    background-color: #222b2e;
+    color: #eee;
 }
 span.standings {
     width: 1.1em;
@@ -76,7 +81,13 @@ span.standings {
 @media screen and (max-width: 1099px) {
 	body {height: auto;}
 	article {overflow-x: auto;}
-	p.blurb {margin-left: 20em; min-width: 15em; max-width: 20em;}
+	p.blurb {margin-left: 21em; min-width: 15em; max-width: 90%;}
 }
-	
+
+.note em {margin-top: 0.5em;
+    display: inline-block;
+    border-top: 1px solid #9bc2cf;
+    padding-top: 0.3em;}
+p.note, li.note {font-size: 90%; color: #eee;}
+p.note {clear:both;}
 
