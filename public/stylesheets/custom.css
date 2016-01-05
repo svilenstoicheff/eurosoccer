@@ -25,6 +25,7 @@ menu a {color:#fff;}
 menu a:visited {color:#fff;}
 ul li {list-style-type: none; padding-bottom: 0.3em;}
 li img, li a {vertical-align: middle; margin-right: 0.5em}
+.teamList li a {line-height: 160%;}
 #leagueList, #standings {float: left; margin-right: 1em;}
 #standings, #gamesPlayed {display: none; margin-left: 2em; margin-top: 1em; background-color: #add8e6; padding: 0.5em; font-size: 85%;}
 #gamesPlayed {max-height: 90%; font-size:80%; overflow-y: scroll;background-color: #eee; position:relative;}
@@ -36,11 +37,11 @@ ul.teamList, #leagueList {width:auto; max-width: 18em; height: 100%; float: left
 ul.teamList {max-width: 15em;}
 #leagueList a, ul.teamList a {color: #eee;}
 #leagueList h2 {color: #ddd; clear:both; padding-top: 1rem;}
-.teamInfo {float:left; width: 73%; min-width: 38rem; margin: 1em 0.5em; font-size:.85rem; background: #add8e6; padding: 0 1em;
+.teamInfo {float:left; width: 73%; min-width: 38rem; margin: 1em 0.5em; font-size:.8rem; background: #add8e6; padding: 0 1em;
 	background-position: right top; background-repeat: no-repeat; background-size: 5em auto;}
 p {line-height: 150%;}
 th, td {padding: .3em; text-align: left;}
-.playerList {font-size: .9rem; width: 95%;}
+.playerList {font-size: .8rem; width: 95%;}
 .playerList tbody tr:nth-child(2n-1), #standings tbody tr:nth-child(odd), #gamesPlayed tbody tr:nth-child(odd) {background-color: #9bc2cf;}
 .box { box-shadow: 1px 1px 1px 1px;}
 .bar { fill: steelblue;}
@@ -63,14 +64,13 @@ td.date {text-align: right;}
 #error {color: red; display: none; margin: 15% auto; width: 40%; text-align: center; padding: 1em;}
 .points {font-weight: 700;}
 p.blurb {
-    /*margin: 2em 1em 0 40em;
-    border: 1px outset #ccc; */
-    margin: 1em 1em 1em 21em;
-    max-width: 90%;
-    padding: .5em;
-    background-color: #222b2e;
+    font-size: 90%;
     color: #eee;
 }
+.blurb em {display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #9bc2cf;
+    padding-bottom: 0.3em;}
 span.standings {
     width: 1.1em;
     height: 1.12em;
@@ -81,7 +81,6 @@ span.standings {
 @media screen and (max-width: 1099px) {
 	body {height: auto;}
 	article {overflow-x: auto;}
-	p.blurb {margin-left: 21em; min-width: 15em; max-width: 90%;}
 }
 
 .note em {margin-top: 0.5em;
@@ -90,4 +89,5 @@ span.standings {
     padding-top: 0.3em;}
 p.note, li.note {font-size: 90%; color: #eee;}
 p.note {clear:both;}
+.footnote {font-size: 90%; font-style: italic;}
 

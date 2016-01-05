@@ -4,6 +4,8 @@ block content
   article#leaguesContainer 
      
      section#leagueList.box
+        p.blurb
+           em Click <span class="standings"></span> for current standings
         h2 Germany
         each league in leaguedata
           if league.league === 'BL1'
@@ -63,8 +65,7 @@ block content
             h3
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
             a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
-            
-     p.blurb.box This site displays current statistics for the most competitive West European football (soccer) leagues. Click on a league name on the left to get team and player stats. For current standings, just click the <span class="standings"></span> icon.      
+                  
      section#standings.box
         h2#leagueName 
         table
