@@ -1,5 +1,5 @@
 var request = require('request');
-var defaultSeason = 2015;
+var defaultSeason = 2016;
 
 module.exports.leagueList = function(req, res){
 
