@@ -16,12 +16,12 @@ block content
            em Click a team name for player info and value comparison
       section.teamInfo.box#teamInfoId(ng-show= 'teamInfo')
          h2(ng-bind= 'teamName')
-         h3 Market Value*: 
+         // h3 Market Value*: 
             span.marketValue(ng-bind= 'teamMarketValue')
          
          h2 Players
          p
-          a#showChart(href='#') See a market-value comparison chart
+          // a#showChart(href='#') See a market-value comparison chart
          table.playerList
                thead 
                   tr
@@ -31,11 +31,11 @@ block content
                      th Date of birth
                      th Nationality
                      th Contract until 
-                     th Market value*
+                     // th Market value*
                 tbody
 
-            p.footnote * Converted to USD from EUR
-
+            p &nbsp;
+            //.footnote * Converted to USD from EUR
       
       section#standings.box
         h2#leagueName 
