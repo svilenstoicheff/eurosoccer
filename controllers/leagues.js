@@ -7,7 +7,7 @@ var leagues = [],
     season = req.query.season || defaultSeason,
 		soccerApiOptions = {
 			headers:{"X-Auth-Token": "55e2b001494e4a19b5ea2aa10ada3c7e"}, 
-    		url: "http://api.football-data.org/alpha/soccerseasons/?season=" + season, 
+    		url: "http://api.football-data.org/v1/competitions/?season=" + season, 
     		method: "GET", 
     		json: {}, 
     		qs: {}
