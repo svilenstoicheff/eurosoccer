@@ -3,19 +3,25 @@ extends layout
 block content
   
   article(ng-controller= 'Teams', data-rate= rate, id= 'teamsContainer', data-standingsurl= standingsUrl)
-      ul.teamList.box
-         each standing in standingdata
-          each team in teamdata
-           if standing.teamName === team.name
-             li 
-                a.teamBadge(href= '#', ng-click= 'getTeamsData(\''+team._links.self.href+'\')')
-                   img.teamcrest(src= team.crestUrl)
-             
-                a.teamName(href= '#', ng-click= 'getTeamsData(\''+team._links.self.href+'\')') #{team.name} 
-         li.note
-           em Click a team name for player info and value comparison
-      section.teamInfo.box#teamInfoId(ng-show= 'teamInfo')
-         h2(ng-bind= 'teamName')
+      //- ul.teamList.box
+      //-    each standing in standingdata
+      //-       li
+      //-          a(data-json = standing)= standing.team.name
+         //- // each team in teamdata
+         //- //if standing.teamName === team.name
+         //-    li 
+         //-       a.teamBadge(href= '#', ng-click= 'getTeamsData(\''+team._links.self.href+'\')')
+         //-          img.teamcrest(src= team.crestUrl)
+          
+         //-       a.teamName(href= '#', ng-click= 'getTeamsData(\''+team._links.self.href+'\')') #{team.name} 
+         //-    li.note
+         //-       em Click a team name for player info and value comparison
+      
+      //- section#standings.box
+      //-    h2#leagueName= title      
+      
+      //section.teamInfo.box#teamInfoId(ng-show= 'teamInfo')
+      //   h2(ng-bind= 'teamName')
          // h3 Market Value*: 
             span.marketValue(ng-bind= 'teamMarketValue')
          
@@ -38,9 +44,8 @@ block content
             //.footnote * Converted to USD from EUR
       
       section#standings.box
-        h2#leagueName 
         table
-           thead
+            thead
               tr
                  th
                  th team
@@ -50,7 +55,16 @@ block content
                  th goals -
                  th goal diff
                  th games
-           tbody
+            tbody
+               each standing in standingdata
+                  tr
+                     td= standing.position
+                     td= standing.team.name
+                     td= standing.points
+                     td= standing.playedGames
+                     td= standing.goalsFor
+                     td= standing.goalsAgainst
+                     td= standing.goalDifference
            tfoot 
               tr.note
                  td(colspan= 8) 

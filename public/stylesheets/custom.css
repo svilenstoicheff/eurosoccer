@@ -10,6 +10,7 @@ body {
 	background-position: center;
 	background-size: 100% 100%;
 	overflow: auto;
+	height: 100%;
 }
 
 article {width:90%; height:100%; font-size: 90%; margin: 4.5em auto 0 auto; overflow-x: hidden; overflow-y: auto; 
@@ -28,6 +29,8 @@ li img, li a {vertical-align: middle; margin-right: 0.5em}
 .teamList li a {line-height: 160%;}
 #leagueList, #standings {float: left; margin-right: 1em;}
 #standings, #gamesPlayed {display: none; margin-left: 2em; margin-top: 1em; background-color: #add8e6; padding: 0.5em; font-size: 85%;}
+#standings {display: block;}
+#leagueList + #standings {display: none}
 #gamesPlayed {max-height: 90%; font-size:80%; overflow-y: scroll;background-color: #eee; position:relative;}
 a.standings {display: inline-block; font-size: 80%; text-indent: 1em; float: right; margin-top: 0.3em; margin-left:1em; height: 1rem; width: 1rem;}
 #leagueList h3 {clear: both; float: left; margin: 0.2em 0;}
@@ -78,10 +81,10 @@ span.standings {
     background-color: #222b2e;
 }
 
-@media screen and (max-width: 1099px) {
+/* @media screen and (max-width: 1099px) {
 	body {height: auto;}
 	article {overflow-x: auto;}
-}
+} */
 
 .note em {margin-top: 0.5em;
     display: inline-block;
