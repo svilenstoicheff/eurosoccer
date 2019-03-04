@@ -12,15 +12,10 @@ html(ng-app='Soccer')
     script(src='/javascripts/client.js')
     
   body(data-season= season)
-    header.box
-     h1= title
-     nav 
-       menu
-          ul
-             li
-                a(href= '/?season='+season) Home
-                
-    block content
-
-
-    footer
+    main
+      header.box
+        a.navlink(href= '/?season='+season) Home
+        h1= title
+          
+      block content
+      footer
