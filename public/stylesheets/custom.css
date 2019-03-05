@@ -13,7 +13,11 @@ body {
 	height: 100%;
 }
 
-article {background-color: #e3e3e3; box-shadow: 1px 1px 1px 1px #999;}
+article {
+	background-color: #e3e3e3; 
+	box-shadow: 1px 1px 1px 1px #999;
+	overflow: auto;
+}
 /* article#teamsContainer, article#leaguesContainer {min-width:1100px;} */
 nav {width: 100%; background: #555;  padding: .3em 0;}
 header, footer {background: #555;}
@@ -24,8 +28,15 @@ menu a:visited {color:#fff;}
 ul li {list-style-type: none; padding-bottom: 0.3em;}
 li img, li a {vertical-align: middle; margin-right: 0.5em}
 .teamList li a {line-height: 160%;}
-#leagueList, #standings {margin-right: 1em;}
-#standings, #gamesPlayed {display: none; margin-left: 2em; margin-top: 1em; background-color: #add8e6; padding: 0.5em; font-size: 85%;}
+#leagueList, #standings {
+	overflow: inherit;
+	height:100%;
+}
+#standings, #gamesPlayed {
+	display: none; 
+	background-color: #add8e6; 
+	padding: 0.5em; 
+}
 #standings {display: block;}
 #leagueList + #standings {display: none}
 #gamesPlayed {max-height: 90%; font-size:80%; overflow-y: scroll;background-color: #eee; position:relative;}
@@ -89,5 +100,9 @@ span.standings {
 p.note, li.note {font-size: 90%; color: #eee;}
 p.note {clear:both;}
 .footnote {font-size: 90%; font-style: italic;}
-a.navlink {color: #fff;}
+a.navlink {
+	color: #fff;
+    float: left;
+    margin: .5em;
+}
 

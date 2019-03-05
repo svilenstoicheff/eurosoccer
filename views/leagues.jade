@@ -8,7 +8,7 @@ block content
            em Click <span class="standings"></span> for current standings
         h2 Germany
         each league in leaguedata
-         p.id(data-leagueid= league.id data-leaguecode= league.code)
+         //- p.id(data-leagueid= league.id data-leaguecode= league.code)
           if league.code === 'BL1'
             h3
                a(data-league-id= league.id href='/teams?id='+league.id)= league.name
@@ -56,23 +56,4 @@ block content
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
             a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
                   
-     section#standings.box
-        h2#leagueName 
-        table
-           thead
-              tr
-                 th
-                 th team
-                 th pts
-                 th gp
-                 th goals +
-                 th goals -
-                 th goal diff
-                 th games
-           tbody
-           tfoot 
-              tr.note
-                 td(colspan= 8) 
-                    em Click the <span class="games-played-icon"></span> icon to see a list of past games and scores, and pending games. 
-     
-     p#error.box
+

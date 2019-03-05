@@ -13,7 +13,11 @@ blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: no
  /* remember to highlight inserts somehow! */
 ins {text-decoration: none;}
 del {text-decoration: line-through;}
-table {border-collapse: collapse; border-spacing: 0;}
+table {
+	border-collapse: collapse; 
+	border-spacing: 0;
+	width: 100%;
+}
 /* end reset*/
 
 /* page styles */
