@@ -25,5 +25,6 @@ var express = require('express'),
 
 router.get('/', ctrl.leagueList);
 router.get('/teams', ctrl.teamsList);
+router.get('/matches', ctrl.matches);
 
 module.exports = router;
