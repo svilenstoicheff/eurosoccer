@@ -52,7 +52,12 @@ ul.teamList, #leagueList {background: #222b2e; padding: 1em 1em 4em;}
 p {line-height: 150%;}
 th, td {padding: .3em; text-align: left;}
 .playerList {font-size: .8rem; width: 95%;}
-.playerList tbody tr:nth-child(2n-1), #standings tbody tr:nth-child(odd), #gamesPlayed tbody tr:nth-child(odd) {background-color: #9bc2cf;}
+.playerList tbody tr:nth-child(2n-1), 
+	#standings tbody tr:nth-child(odd), 
+	#gamesPlayed tbody tr:nth-child(odd), 
+	.matchesTable tbody tr:nth-child(odd) {
+	background-color: #9bc2cf;
+}
 .box { box-shadow: 1px 1px 1px 1px;}
 .bar { fill: steelblue;}
 .bar:hover { fill: brown;}
@@ -105,4 +110,6 @@ a.navlink {
     float: left;
     margin: .5em;
 }
-
+.matchesContainer {
+	overflow: auto;
+}
