@@ -8,52 +8,42 @@ block content
            em Click <span class="standings"></span> for current standings
         h2 Germany
         each league in leaguedata
-          if league.league === 'BL1'
+         //- p.id(data-leagueid= league.id data-leaguecode= league.code)
+          if league.code === 'BL1'
             h3
-               a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
+               a(data-league-id= league.id href='/teams?id='+league.id)= league.name
+            //-    a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
+            //- a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
           
         h2 Britain
         each league in leaguedata
-          if league.league === 'PL'
+          if league.code === 'PL'
             h3
-               a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
+               a(data-league-id= league.id href='/teams?id='+league.id)= league.name
             
         h2 France
         each league in leaguedata
-          if league.league === 'FL1'
+          if league.code === 'FL1'
             h3
-               a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
-        
-        h2 Italy
-        each league in leaguedata
-          if league.league === 'SA'
-            h3
-               a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
+               a(data-league-id= league.id href='/teams?id='+league.id)= league.name
         
         h2 Spain
         each league in leaguedata
-          if league.league === 'PD'
+          if league.code === 'PD'
             h3
-               a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
-        
+               a(data-league-id= league.id href='/teams?id='+league.id)= league.name
+
         h2 Netherlands
         each league in leaguedata
-          if league.league === 'DED'
+          if league.code === 'DED'
             h3
-               a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
+               a(data-league-id= league.id href='/teams?id='+league.id)= league.name
             
         h2 Portugal
         each league in leaguedata
-          if league.league === 'PPL'
+          if league.code === 'PPL'
             h3
-               a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
-            a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
+               a(data-league-id= league.id href='/teams?id='+league.id)= league.name
         
         p.note
            em Click a league name to see the teams and standings
@@ -66,23 +56,4 @@ block content
                a(data-url= league._links.teams.href, href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption+'&season='+season)= league.caption
             a.standings(data-standings= league._links.leagueTable.href, href= '#', title= 'standings') 
                   
-     section#standings.box
-        h2#leagueName 
-        table
-           thead
-              tr
-                 th
-                 th team
-                 th pts
-                 th gp
-                 th goals +
-                 th goals -
-                 th goal diff
-                 th games
-           tbody
-           tfoot 
-              tr.note
-                 td(colspan= 8) 
-                    em Click the <span class="games-played-icon"></span> icon to see a list of past games and scores, and pending games. 
-     
-     p#error.box
+

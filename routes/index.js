@@ -1,6 +1,7 @@
 var express = require('express'), 
 	router = express.Router(), 
-	ctrl = require('../controllers/leagues');
+    ctrl = require('../controllers/leagues');
+    ctrlMatches = require('../controllers/matches');
 
 //request(soccerApilOptions, function(err, response, body){
   //  if(err){
@@ -25,5 +26,6 @@ var express = require('express'),
 
 router.get('/', ctrl.leagueList);
 router.get('/teams', ctrl.teamsList);
+router.get('/matches', ctrlMatches.matches);
 
 module.exports = router;

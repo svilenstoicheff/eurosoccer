@@ -13,14 +13,23 @@ blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: no
  /* remember to highlight inserts somehow! */
 ins {text-decoration: none;}
 del {text-decoration: line-through;}
-table {border-collapse: collapse; border-spacing: 0;}
+table {
+	border-collapse: collapse; 
+	border-spacing: 0;
+	width: 100%;
+}
 /* end reset*/
 
 /* page styles */
 body, html {height: 100%;}
+main {
+	display: grid;
+	grid-template-rows: 10% 80% 10%; 
+	height: 100%;
+	}
 body {font-size:16px; font-family: Verdana, sans-serif; height: calc(100% - 5em);}
 .main { margin: 0 auto; overflow: hidden; padding-bottom: 100px; }
-h1 {font-size: 2em; margin:0.5em 0;}
+h1 {font-size: 1.7em; margin:0.5em 0;}
 h2 {font-size: 1.5em; margin:0.5em 0;}
 h3 {font-size: 1.2em; margin:0.5em 0;}
 h4 {font-size: 1em; margin:0.5em 0;}

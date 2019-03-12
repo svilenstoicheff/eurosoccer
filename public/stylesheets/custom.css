@@ -10,15 +10,17 @@ body {
 	background-position: center;
 	background-size: 100% 100%;
 	overflow: auto;
+	height: 100%;
 }
 
-article {width:90%; height:100%; font-size: 90%; margin: 4.5em auto 0 auto; overflow-x: hidden; overflow-y: auto; 
-	padding-bottom: 1em; background-color: #e3e3e3; box-shadow: 1px 1px 1px 1px #999;}
-article#teamsContainer, article#leaguesContainer {min-width:1100px;}
+article {
+	background-color: #e3e3e3; 
+	box-shadow: 1px 1px 1px 1px #999;
+	overflow: auto;
+}
+/* article#teamsContainer, article#leaguesContainer {min-width:1100px;} */
 nav {width: 100%; background: #555;  padding: .3em 0;}
-header, footer {height: 3em; background: #555; clear: both; width: 100%;}
-header {position: fixed; top: 0;}
-footer {position: fixed; bottom: 0; height: 1.5em;}
+header, footer {background: #555;}
 header h1 {margin: 0.5rem 0 0; color: #fffff0; text-align: center; min-width: 14em;}
 nav menu {width:90%; margin:auto; color: #fff; }
 menu a {color:#fff;}
@@ -26,15 +28,23 @@ menu a:visited {color:#fff;}
 ul li {list-style-type: none; padding-bottom: 0.3em;}
 li img, li a {vertical-align: middle; margin-right: 0.5em}
 .teamList li a {line-height: 160%;}
-#leagueList, #standings {float: left; margin-right: 1em;}
-#standings, #gamesPlayed {display: none; margin-left: 2em; margin-top: 1em; background-color: #add8e6; padding: 0.5em; font-size: 85%;}
+#leagueList, #standings {
+	overflow: inherit;
+	height:100%;
+}
+#standings, #gamesPlayed {
+	display: none; 
+	background-color: #add8e6; 
+	padding: 0.5em; 
+}
+#standings {display: block;}
+#leagueList + #standings {display: none}
 #gamesPlayed {max-height: 90%; font-size:80%; overflow-y: scroll;background-color: #eee; position:relative;}
 a.standings {display: inline-block; font-size: 80%; text-indent: 1em; float: right; margin-top: 0.3em; margin-left:1em; height: 1rem; width: 1rem;}
 #leagueList h3 {clear: both; float: left; margin: 0.2em 0;}
 h3 a {text-indent: .5em; display: inline-block;}
 .teamcrest {width: 1.25em}
-ul.teamList, #leagueList {width:auto; max-width: 18em; height: 100%; float: left; margin-bottom: 1em; background: #222b2e; padding: 1em 1em 4em;}
-ul.teamList {max-width: 15em;}
+ul.teamList, #leagueList {background: #222b2e; padding: 1em 1em 4em;}
 #leagueList a, ul.teamList a {color: #eee;}
 #leagueList h2 {color: #ddd; clear:both; padding-top: 1rem;}
 .teamInfo {float:left; width: 73%; min-width: 38rem; margin: 1em 0.5em; font-size:.8rem; background: #add8e6; padding: 0 1em;
@@ -42,7 +52,12 @@ ul.teamList {max-width: 15em;}
 p {line-height: 150%;}
 th, td {padding: .3em; text-align: left;}
 .playerList {font-size: .8rem; width: 95%;}
-.playerList tbody tr:nth-child(2n-1), #standings tbody tr:nth-child(odd), #gamesPlayed tbody tr:nth-child(odd) {background-color: #9bc2cf;}
+.playerList tbody tr:nth-child(2n-1), 
+	#standings tbody tr:nth-child(odd), 
+	#gamesPlayed tbody tr:nth-child(odd), 
+	.matchesTable tbody tr:nth-child(odd) {
+	background-color: #9bc2cf;
+}
 .box { box-shadow: 1px 1px 1px 1px;}
 .bar { fill: steelblue;}
 .bar:hover { fill: brown;}
@@ -78,10 +93,10 @@ span.standings {
     background-color: #222b2e;
 }
 
-@media screen and (max-width: 1099px) {
+/* @media screen and (max-width: 1099px) {
 	body {height: auto;}
 	article {overflow-x: auto;}
-}
+} */
 
 .note em {margin-top: 0.5em;
     display: inline-block;
@@ -90,4 +105,11 @@ span.standings {
 p.note, li.note {font-size: 90%; color: #eee;}
 p.note {clear:both;}
 .footnote {font-size: 90%; font-style: italic;}
-
+a.navlink {
+	color: #fff;
+    float: left;
+    margin: .5em;
+}
+.matchesContainer {
+	overflow: auto;
+}
