@@ -1,9 +1,0 @@
-extends layout
-
-block content
-  h1= title
-  ul
-     each league in leaguedata
-      li
-         a(data-url= league._links.teams.href)(href='/teams?dataurl='+league._links.teams.href+'&league='+league.caption)= league.caption
-
