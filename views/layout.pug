@@ -1,0 +1,21 @@
+doctype html
+html(ng-app='Soccer')
+  head
+    title= title
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='/stylesheets/global.css')
+    link(rel='stylesheet', href='/stylesheets/graphics.css')
+    link(rel='stylesheet', href='/stylesheets/custom.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js')
+    script(src= 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src='/javascripts/ss-lib.js')
+    script(src='/javascripts/client.js')
+    
+  body(data-season= season)
+    main
+      header.box
+        a.navlink(href= '/?season='+season) Home
+        h1= title
+          
+      block content
+      footer
